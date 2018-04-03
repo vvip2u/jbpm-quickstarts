@@ -1,612 +1,160 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<!-- 
-	<parent>
-		<groupId>com.ebao.ls.workflow.jbpm</groupId>
-		<artifactId>jbpm6-jdk6-demo</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	 -->
-	
+
 	<name>jbpm-basic</name>
 	<groupId>com.ebao.ls.workflow.jbpm</groupId>
 	<artifactId>jbpm-basic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<description>a basic jbpm demo</description>
-	<!-- <packaging>jar</packaging> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.7</java.version>
+		<java.version>1.6</java.version>
+		<!-- <org.slf4j-version>1.6.6</org.slf4j-version> -->
 	</properties>
-	
+
+	<repositories>
+	<!-- 
+		<repository>
+			<id>aliyunmaven</id>
+			<name>ali yun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+	 -->
+	 <!-- 
+	 
+		<repository>
+			<id>central</id>
+			<name>Maven Central</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<url>http://central.maven.org/maven2/</url>
+		</repository>
+	 -->
+	</repositories>
+
 	<dependencies>
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-api</artifactId>
-		    <version>1.7.25</version>
-		</dependency>	
-		
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14 -->
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-jdk14</artifactId>
-		    <version>1.7.25</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-		<dependency>
-		    <groupId>joda-time</groupId>
-		    <artifactId>joda-time</artifactId>
-		    <version>2.9.9</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/xmlpull/xmlpull -->
-		<dependency>
-		    <groupId>xmlpull</groupId>
-		    <artifactId>xmlpull</artifactId>
-		    <version>1.1.3.1</version>
-		    
-		</dependency>
-
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-artifact</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.9.9</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.activation/activation -->
-		<dependency>
-		    <groupId>javax.activation</groupId>
-		    <artifactId>activation</artifactId>
-		    <version>1.1.1</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-		<!-- 
-		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>javax.mail-api</artifactId>
-		    
-			<systemPath>${project.basedir}/libs/javax.mail-api-1.4.5.jar</systemPath>
-		</dependency>
-		 -->
-
-		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>mail</artifactId>
-		    <version>1.4.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-core-asl</artifactId>
-		    <version>1.9.9</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-core -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-core</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-model -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-model</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-model-builder -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-model-builder</artifactId>
-		    <version>3.2.5</version>
-		    
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-plugin-api -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-plugin-api</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-settings -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-settings</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-settings-builder -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-settings-builder</artifactId>
-		    <version>3.2.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-compat -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-compat</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-aether-provider -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-aether-provider</artifactId>
-		    <version>3.2.1</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.wagon/wagon-provider-api -->
-		<dependency>
-		    <groupId>org.apache.maven.wagon</groupId>
-		    <artifactId>wagon-provider-api</artifactId>
-		    <version>2.6</version>
-		    
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-classworlds -->
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-classworlds</artifactId>
-		    <version>2.5.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-utils -->
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-utils</artifactId>
-		    <version>3.0.20</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-util -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-util</artifactId>
-		    <version>1.0.0.v20140518</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-impl -->
-		<!-- 
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-impl</artifactId>
-		    
-		</dependency>
-		 -->
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-connector-basic -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-connector-basic</artifactId>
-		    <version>1.0.2.v20150114</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-spi -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-spi</artifactId>
-		    <version>1.0.0.v20140518</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-transport-wagon -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-transport-wagon</artifactId>
-		    <version>1.0.0.v20140518</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-transport-file -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-transport-file</artifactId>
-		    <version>1.0.2.v20150114</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-transport-http -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-transport-http</artifactId>
-		    <version>1.0.2.v20150114</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.sisu/org.eclipse.sisu.plexus -->
-		<dependency>
-		    <groupId>org.eclipse.sisu</groupId>
-		    <artifactId>org.eclipse.sisu.plexus</artifactId>
-		    <version>0.3.0.M1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
-		<dependency>
-		    <groupId>org.apache.ant</groupId>
-		    <artifactId>ant</artifactId>
-		    <version>1.8.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.wagon/wagon-http -->
-		<dependency>
-		    <groupId>org.apache.maven.wagon</groupId>
-		    <artifactId>wagon-http</artifactId>
-		    <version>2.6</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpcore</artifactId>
-		    <version>4.4.9</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.sonatype.plexus/plexus-cipher -->
-		<dependency>
-		    <groupId>org.sonatype.plexus</groupId>
-		    <artifactId>plexus-cipher</artifactId>
-		    <version>1.7</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.sonatype.sisu/sisu-guice -->
-		<dependency>
-		    <groupId>org.sonatype.sisu</groupId>
-		    <artifactId>sisu-guice</artifactId>
-		    <version>3.2.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.8.10</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-		<dependency>
-		    <groupId>com.h2database</groupId>
-		    <artifactId>h2</artifactId>
-		    <version>1.3.161</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
-		<dependency>
-		    <groupId>com.sun.xml.bind</groupId>
-		    <artifactId>jaxb-core</artifactId>
-		    <version>2.2.11</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
-		<dependency>
-		    <groupId>com.thoughtworks.xstream</groupId>
-		    <artifactId>xstream</artifactId>
-		    <version>1.4.9</version>
-		</dependency>
-
-		
-		<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
-		<dependency>
-		    <groupId>commons-collections</groupId>
-		    <artifactId>commons-collections</artifactId>
-		    <version>3.2.2</version>
-		</dependency>
-	
-		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-		<dependency>
-		    <groupId>commons-io</groupId>
-		    <artifactId>commons-io</artifactId>
-		    <version>2.1</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
-		<dependency>
-		    <groupId>dom4j</groupId>
-		    <artifactId>dom4j</artifactId>
-		    <version>1.6.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.12</version>
-		</dependency>
-
-		<dependency>
-		    <groupId>org.antlr</groupId>
-		    <artifactId>antlr-runtime</artifactId>
-		    <version>3.5.2</version>
-		</dependency>		
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-compress</artifactId>
-		    <version>1.4.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-exec -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-exec</artifactId>
-		    <version>1.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		    <version>3.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-api -->
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-api</artifactId>
-		    <version>2.7.18</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-databinding-jaxb -->
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
-		    <version>2.7.18</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxws -->
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
-		    <version>2.7.18</version>
-		    
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
-		<dependency>
-		    <groupId>org.apache.cxf</groupId>
-		    <artifactId>cxf-rt-transports-http</artifactId>
-		    <version>2.7.18</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		    <version>4.5.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.neethi/neethi -->
-		<dependency>
-		    <groupId>org.apache.neethi</groupId>
-		    <artifactId>neethi</artifactId>
-		    <version>3.0.2</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.ws.xmlschema/xmlschema-core -->
-		<dependency>
-		    <groupId>org.apache.ws.xmlschema</groupId>
-		    <artifactId>xmlschema-core</artifactId>
-		    <version>2.0.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.btm/btm -->
-		<dependency>
-		    <groupId>org.codehaus.btm</groupId>
-		    <artifactId>btm</artifactId>
-		    <version>2.1.4</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.aether/aether-api -->
-		<dependency>
-		    <groupId>org.eclipse.aether</groupId>
-		    <artifactId>aether-api</artifactId>
-		    <version>1.0.2.v20150114</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.jdt.core.compiler/ecj -->
-		<dependency>
-		    <groupId>org.eclipse.jdt.core.compiler</groupId>
-		    <artifactId>ecj</artifactId>
-		    <version>4.4.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
-		<dependency>
-		    <groupId>org.freemarker</groupId>
-		    <artifactId>freemarker</artifactId>
-		    <version>2.3.27-incubating</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
-		<dependency>
-		    <groupId>org.hamcrest</groupId>
-		    <artifactId>hamcrest-all</artifactId>
-		    <version>1.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.jdom/jdom -->
-		<dependency>
-		    <groupId>org.jdom</groupId>
-		    <artifactId>jdom</artifactId>
-		    <version>1.1.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.reflections/reflections -->
-		<dependency>
-		    <groupId>org.reflections</groupId>
-		    <artifactId>reflections</artifactId>
-		    <version>0.9.10</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.sonatype.plexus/plexus-sec-dispatcher -->
-		<dependency>
-		    <groupId>org.sonatype.plexus</groupId>
-		    <artifactId>plexus-sec-dispatcher</artifactId>
-		    <version>1.3</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/wsdl4j/wsdl4j -->
-		<dependency>
-		    <groupId>wsdl4j</groupId>
-		    <artifactId>wsdl4j</artifactId>
-		    <version>1.6.3</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-interpolation -->
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-interpolation</artifactId>
-		    <version>1.24</version>
-		    
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.sisu/org.eclipse.sisu.plexus -->
-		<dependency>
-		    <groupId>org.eclipse.sisu</groupId>
-		    <artifactId>org.eclipse.sisu.plexus</artifactId>
-		    <version>0.3.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.eclipse.sisu/org.eclipse.sisu.inject -->
-		<dependency>
-		    <groupId>org.eclipse.sisu</groupId>
-		    <artifactId>org.eclipse.sisu.inject</artifactId>
-		    <version>0.3.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
-		<dependency>
-		    <groupId>javax.inject</groupId>
-		    <artifactId>javax.inject</artifactId>
-		    <version>1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-archiver -->
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-archiver</artifactId>
-		    <version>3.4</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-component-annotations -->
-		<dependency>
-		    <groupId>org.codehaus.plexus</groupId>
-		    <artifactId>plexus-component-annotations</artifactId>
-		    <version>1.7.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>18.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
-		<dependency>
-		    <groupId>aopalliance</groupId>
-		    <artifactId>aopalliance</artifactId>
-		    <version>1.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
-		<dependency>
-		    <groupId>javax.enterprise</groupId>
-		    <artifactId>cdi-api</artifactId>
-		    <version>1.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-artifact</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.maven/maven-repository-metadata -->
-		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-repository-metadata</artifactId>
-		    <version>3.2.5</version>
-		</dependency>
-		 
-		 <dependency> 
-		    <groupId>org.jbpm</groupId>
-		    <artifactId>jbpm-flow</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.jbpm/jbpm-kie-services -->
-		<dependency>
-		    <groupId>org.jbpm</groupId>
-		    <artifactId>jbpm-kie-services</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.jbpm/jbpm-bpmn2 -->
-		<dependency>
-		    <groupId>org.jbpm</groupId>
-		    <artifactId>jbpm-bpmn2</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.jbpm/jbpm-test -->
-		<dependency>
-		    <groupId>org.jbpm</groupId>
-		    <artifactId>jbpm-test</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.drools/knowledge-api -->
-		<dependency>
-		    <groupId>org.drools</groupId>
-		    <artifactId>knowledge-api</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.kie</groupId>
-		    <artifactId>kie-api</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.drools/drools-compiler -->
-		<dependency>
-		    <groupId>org.drools</groupId>
-		    <artifactId>drools-compiler</artifactId>
-		    <version>6.5.0.Final</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
 		    <version>1.16.20</version>
 		</dependency>
-	</dependencies>
 	
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>	
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.168</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>4.2.21.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.21.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.25</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-bpmn2</artifactId>
+			<version>6.5.0.Final</version>
+		</dependency>
+		
+		<!-- 
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-human-task-hornetq</artifactId>
+			<version>6.5.0.Final</version>
+		</dependency>
+		 -->
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.10</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.3.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.3.6</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.4.0</version>
+		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>org.subethamail</groupId>
+			<artifactId>subethasmtp-wiser</artifactId>
+			<version>3.1.7</version>
+		</dependency>
+		 -->
+		
+		<dependency>
+		    <groupId>org.jbpm</groupId>
+		    <artifactId>jbpm-persistence-jpa</artifactId>
+		    <version>6.5.0.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-test</artifactId>
+			<version>6.5.0.Final</version>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId> 
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target> 
+				</configuration> 
+			</plugin>
+				
+			<!-- 
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
 			</plugin>
+			 -->
 		</plugins>
 	</build>
-	
+
 </project>
