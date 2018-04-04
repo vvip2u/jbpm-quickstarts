@@ -1,0 +1,8 @@
+/.metadata/
+/.recommenders/
+.gitignore
+*.log
+*mvnw
+*mvnw.cmd
+.*
+*/target/*
