@@ -15,29 +15,10 @@ import com.ebao.ls.workflow.jbpm.util.JbpmUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
-//import org.drools.KnowledgeBase;
-//import org.drools.builder.KnowledgeBuilder;
-//import org.drools.builder.KnowledgeBuilderFactory;
-//import org.drools.builder.ResourceType;
-//import org.drools.io.ResourceFactory;
-//import org.drools.runtime.StatefulKnowledgeSession;
-
 @Slf4j
 public class BasicDemoMain {
 
 	public static final void main(String[] args) throws Exception {
-//		 //load up the knowledge base
-//		 KnowledgeBase kbase = readKnowledgeBase();
-//		 StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
-//		 // start a new process instance
-//		 ksession.startProcess(PROCESS_ID);
-
-		// KnowledgeBuilder kbuilder =
-		// KnowledgeBuilderFactory.newKnowledgeBuilder();
-		// kbuilder.add(ResourceFactory.newClassPathResource("basic-demo.bpmn"), ResourceType.BPMN2);
-
-		// KnowledgeBase kbase = kbuilder.newKnowledgeBase();
-		// KieSession kSession = kbase.newStatefulKnowledgeSession();
 		
 		
 		KieSession ksession = JbpmUtil.getSessionInsance(BPMN_FILE);
@@ -48,7 +29,7 @@ public class BasicDemoMain {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("name", "jake");
 		ProcessInstance processInstance = ksession.startProcess(PROCESS_ID, params);
-
+		
 		log.info("processId:    " + processInstance.getProcessId());
 		log.info("processName:  " + processInstance.getProcessName());
 		
@@ -63,6 +44,5 @@ public class BasicDemoMain {
 		
 		logger.close();
 	}
-
 
 }

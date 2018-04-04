@@ -1,0 +1,33 @@
+//created on: Feb 7, 2018
+package com.ebao.ls.workflow.jbpm.complicate;
+
+//list any import classes here.
+
+expander customLanguage.dsl
+
+
+rule "Check Adult trigger" ruleflow-group "Validation"
+
+    when
+        //conditions
+    	$order: Order()
+    then
+        //actions
+        if($order.age> 18) {
+        	System.out.println("adult here");
+        }
+
+end
+
+rule "Check Balance Enough" ruleflow-group "Validation"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+        $order: Order()
+    then
+        //actions
+        if($order.balance> 20) {
+        	System.out.println("balance enough");
+        }
+        
+end

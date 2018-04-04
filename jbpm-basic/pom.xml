@@ -13,27 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.6</java.version>
-		<!-- <org.slf4j-version>1.6.6</org.slf4j-version> -->
 	</properties>
-
-	<repositories>
-	<!-- 
-		<repository>
-			<id>aliyunmaven</id>
-			<name>ali yun</name>
-			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-		</repository>
-	 -->
-	 <!-- 
-	 
-		<repository>
-			<id>central</id>
-			<name>Maven Central</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<url>http://central.maven.org/maven2/</url>
-		</repository>
-	 -->
-	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -79,14 +59,6 @@
 			<version>6.5.0.Final</version>
 		</dependency>
 		
-		<!-- 
-		<dependency>
-			<groupId>org.jbpm</groupId>
-			<artifactId>jbpm-human-task-hornetq</artifactId>
-			<version>6.5.0.Final</version>
-		</dependency>
-		 -->
-
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
@@ -120,6 +92,12 @@
 		
 		<dependency>
 		    <groupId>org.jbpm</groupId>
+		    <artifactId>jbpm-runtime-manager</artifactId>
+		    <version>6.5.0.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.jbpm</groupId>
 		    <artifactId>jbpm-persistence-jpa</artifactId>
 		    <version>6.5.0.Final</version>
 		</dependency>
@@ -144,16 +122,6 @@
 				</configuration> 
 			</plugin>
 				
-			<!-- 
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			 -->
 		</plugins>
 	</build>
 
