@@ -31,6 +31,40 @@
 		    <artifactId>tomcat-juli</artifactId>
 		    <version>${tomcat.version}</version>
 		</dependency>	
+
+
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>4.2.21.Final</version>
+		    <!-- 
+		     -->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.21.Final</version>
+			<!-- 
+			 -->
+		</dependency>
+		
+		<dependency>  
+		    <groupId>javax.validation</groupId>  
+		    <artifactId>validation-api</artifactId>  
+		    <version>1.1.0.Final</version>  
+		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.codehaus.btm</groupId>
+		    <artifactId>btm</artifactId>
+		</dependency>
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -68,7 +102,18 @@
 		    <version>6.5.0.Final</version>
 		</dependency>		
 		
-		
+		<dependency>
+		    <groupId>org.jbpm</groupId>
+		    <artifactId>jbpm-kie-services</artifactId>
+		    <version>6.5.0.Final</version>
+		    <exclusions>
+		    		<exclusion>
+		    			<groupId>org.hibernate.javax.persistence</groupId>
+		    			<artifactId>hibernate-jpa-2.0-api</artifactId>
+		    		</exclusion>
+		    </exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>
