@@ -1,0 +1,15 @@
+import org.drools.core.process.core.datatype.impl.type.StringDataType;
+[
+  // the JakeCustomTask item
+  [
+    "name" : "JakeCustomTask",
+    "parameters" : [
+      "Message" : new StringDataType(),
+      "From" : new StringDataType(),
+      "To" : new StringDataType(),
+      "Priority" : new StringDataType(),
+    ],
+    "displayName" : "JakeCustomTask",
+    "icon" : "icons/rules.png"
+  ]
+]

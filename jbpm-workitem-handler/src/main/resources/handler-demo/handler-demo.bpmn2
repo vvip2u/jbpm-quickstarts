@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.2.4.Final-v20160330-1625-B110" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="ItemDefinition_2" isCollection="false" structureRef="org.drools.core.process.core.datatype.impl.type.StringDataType"/>
+  <bpmn2:process id="com.ebao.ls.workflow.handler" tns:packageName="com.ebao.ls.workflow" name="handler-demo" isExecutable="true" processType="Private">
+    <bpmn2:extensionElements>
+      <tns:import name="org.drools.core.process.core.datatype.impl.type.StringDataType"/>
+    </bpmn2:extensionElements>
+    <bpmn2:startEvent id="_jbpm-unique-0" name="Start" isInterrupting="false">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Start]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>_jbpm-unique-0-_jbpm-unique-2</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_jbpm-unique-1" name="End">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[End]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_jbpm-unique-2-_jbpm-unique-1</bpmn2:incoming>
+      <bpmn2:terminateEventDefinition id="TerminateEventDefinition_1"/>
+    </bpmn2:endEvent>
+    <bpmn2:task id="_jbpm-unique-2" tns:taskName="JakeCustomTask" name="JakeCustomTask">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[JakeCustomTask]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_jbpm-unique-0-_jbpm-unique-2</bpmn2:incoming>
+      <bpmn2:outgoing>_jbpm-unique-2-_jbpm-unique-1</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_1">
+        <bpmn2:dataInput id="_jbpm-unique-2_MessageInput" itemSubjectRef="ItemDefinition_2" name="Message"/>
+        <bpmn2:dataInput id="_jbpm-unique-2_ToInput" itemSubjectRef="ItemDefinition_2" name="To"/>
+        <bpmn2:dataInput id="_jbpm-unique-2_FromInput" itemSubjectRef="ItemDefinition_2" name="From"/>
+        <bpmn2:dataInput id="_jbpm-unique-2_PriorityInput" itemSubjectRef="ItemDefinition_2" name="Priority"/>
+        <bpmn2:inputSet id="InputSet_1">
+          <bpmn2:dataInputRefs>_jbpm-unique-2_MessageInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_jbpm-unique-2_ToInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_jbpm-unique-2_FromInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_jbpm-unique-2_PriorityInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_1"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:targetRef>_jbpm-unique-2_MessageInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_1">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">hello msg</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_2">_jbpm-unique-2_MessageInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:targetRef>_jbpm-unique-2_ToInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_2">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_3">charles</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4">_jbpm-unique-2_ToInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+        <bpmn2:targetRef>_jbpm-unique-2_FromInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_3">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_5">jake</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_6">_jbpm-unique-2_FromInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_4">
+        <bpmn2:targetRef>_jbpm-unique-2_PriorityInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_4">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_7">1</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_8">_jbpm-unique-2_PriorityInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_jbpm-unique-2-_jbpm-unique-1" sourceRef="_jbpm-unique-2" targetRef="_jbpm-unique-1"/>
+    <bpmn2:sequenceFlow id="_jbpm-unique-0-_jbpm-unique-2" sourceRef="_jbpm-unique-0" targetRef="_jbpm-unique-2"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="com.ebao.ls.workflow.handler">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_jbpm-unique-0">
+        <dc:Bounds height="48.0" width="48.0" x="95.0" y="191.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
+          <dc:Bounds height="15.0" width="25.0" x="106.0" y="239.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_jbpm-unique-1">
+        <dc:Bounds height="48.0" width="48.0" x="439.0" y="191.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
+          <dc:Bounds height="15.0" width="22.0" x="452.0" y="239.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_1" bpmnElement="_jbpm-unique-2">
+        <dc:Bounds height="48.0" width="154.0" x="219.0" y="191.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
+          <dc:Bounds height="15.0" width="97.0" x="247.0" y="207.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="_jbpm-unique-2-_jbpm-unique-1" sourceElement="BPMNShape_Task_1" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="373.0" y="215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="429.0" y="215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="439.0" y="215.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="_jbpm-unique-0-_jbpm-unique-2" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_Task_1">
+        <di:waypoint xsi:type="dc:Point" x="143.0" y="215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="195.0" y="215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="195.0" y="215.0"/>
+        <di:waypoint xsi:type="dc:Point" x="219.0" y="215.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
